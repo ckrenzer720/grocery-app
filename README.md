@@ -31,16 +31,65 @@ The Grocery List Manager is a productivity app designed to simplify grocery shop
 ```
 grocery-app/
 ├── src/
-│   ├── components/     # Reusable UI components
-│   ├── screens/        # App screens/pages
-│   ├── navigation/     # Navigation configuration
-│   ├── store/          # Redux store and slices
-│   ├── services/       # API and storage services
-│   ├── utils/          # Helper functions
-│   └── constants/      # App constants and config
-├── assets/             # Images, fonts, icons
-├── docs/               # Project documentation
-└── tests/              # Test files
+│   ├── components/           # Reusable UI components
+│   │   ├── common/          # Generic components using React Native Elements
+│   │   │   ├── CustomButton.jsx     # Wrapper around RNE Button with Tailwind
+│   │   │   ├── CustomInput.jsx      # Wrapper around RNE Input with Tailwind
+│   │   │   └── CustomListItem.jsx   # Wrapper around RNE ListItem with Tailwind
+│   │   ├── list/            # List-specific components
+│   │   ├── category/        # Category/section components
+│   │   └── item/            # Individual item components
+│   ├── screens/              # App screens/pages
+│   │   ├── MainList.jsx     # Primary shopping list screen
+│   │   ├── Settings.jsx     # App settings and preferences
+│   │   └── History.jsx      # Shopping history (future)
+│   ├── navigation/           # Navigation configuration
+│   │   ├── AppNavigator.jsx # Main navigation setup
+│   │   └── navigationTypes.js # Navigation type definitions
+│   ├── store/                # Redux state management
+│   │   ├── slices/          # Redux Toolkit slices
+│   │   │   ├── listSlice.js # Shopping list state
+│   │   │   ├── categorySlice.js # Category management
+│   │   │   └── settingsSlice.js # App settings
+│   │   ├── store.js         # Redux store configuration
+│   │   └── storeTypes.js    # State type definitions
+│   ├── services/             # Business logic and external services
+│   │   ├── storage/         # Local storage operations
+│   │   ├── categories/      # Category logic and auto-assignment
+│   │   └── sync/            # Future cloud sync (Phase 3)
+│   ├── utils/                # Helper functions and utilities
+│   │   ├── constants.js     # App constants
+│   │   ├── helpers.js       # General helper functions
+│   │   └── validation.js    # Input validation logic
+│   ├── hooks/                # Custom React hooks
+│   │   ├── useList.js       # List management logic
+│   │   ├── useStorage.js    # Storage operations
+│   │   └── useCategories.js # Category management
+│   └── styles/               # Global styles and themes
+│       ├── tailwind.config.js # Tailwind configuration for NativeWind
+│       └── theme.js          # Custom theme extensions
+├── assets/                    # Static assets
+│   ├── images/               # App images and icons
+│   ├── fonts/                # Custom fonts (if any)
+│   └── icons/                # App-specific icons
+├── docs/                      # Project documentation
+│   ├── CORE_FEATURES.md      # Already exists
+│   ├── API.md                # API documentation (future)
+│   └── COMPONENTS.md         # Component documentation
+├── tests/                     # Test files
+│   ├── components/           # Component tests
+│   ├── hooks/                # Hook tests
+│   ├── utils/                # Utility function tests
+│   └── setup/                # Test configuration
+├── .expo/                     # Expo configuration
+├── app.json                   # Expo app configuration
+├── package.json               # Dependencies and scripts
+├── babel.config.js            # Babel configuration
+├── metro.config.js            # Metro bundler configuration
+├── tailwind.config.js         # Root Tailwind configuration
+├── nativewind-env.js          # NativeWind configuration
+├── jest.config.js             # Jest configuration
+└── README.md                  # Already exists
 ```
 
 ## 🎨 Design Philosophy
@@ -92,13 +141,6 @@ grocery-app/
 ### Installation
 
 ```bash
-# Clone the repository
-git clone [repository-url]
-cd grocery-app
-
-# Install dependencies
-npm install
-
 # Start the development server
 npm start
 
@@ -114,14 +156,35 @@ See [CORE_FEATURES.md](./docs/CORE_FEATURES.md) for detailed feature specificati
 
 This is a personal project for learning and portfolio development. Contributions and suggestions are welcome!
 
-## 📄 License
+## My Approach
 
-This project is for educational and portfolio purposes.
+# Phase 1: Windows Development (Weeks 1-6)
 
-## 📞 Contact
+Set up project structure
+Develop all core features
+Implement UI components
+Set up state management
+Test on Android and web
+Implement local storage
+Add navigation
 
-For questions or feedback about this project, please reach out through the project repository.
+# Phase 2: macOS Testing & Polish (Weeks 7-8)
 
----
+Transfer to macOS
+Test on iOS Simulator
+iOS-specific adjustments
+Performance optimization
+Final testing
+App Store preparation
 
-**Built with ❤️ using React Native and Expo**
+<!-- Initialize the Expo project with the right configuration
+Install dependencies (React Native Elements, NativeWind, Redux Toolkit, etc.)
+Set up the folder structure as outlined above
+Configure NativeWind for Tailwind CSS support
+Set up Jest testing infrastructure
+Create basic component templates using React Native Elements
+The beauty of this setup is that you'll be able to:
+Develop rapidly with pre-built components
+Style quickly using familiar Tailwind classes
+Test thoroughly from the start
+Scale easily as you add more features -->
