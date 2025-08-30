@@ -178,8 +178,8 @@ Final testing
 App Store preparation
 
 <!-- Initialize the Expo project with the right configuration
-Install dependencies (React Native Elements, NativeWind, Redux Toolkit, etc.)
-Set up the folder structure as outlined above
+Install dependencies (React Native Elements, NativeWind, Redux Toolkit, etc.) √
+Set up the folder structure as outlined above √
 Configure NativeWind for Tailwind CSS support
 Set up Jest testing infrastructure
 Create basic component templates using React Native Elements
